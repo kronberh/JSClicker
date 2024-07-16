@@ -1,3 +1,6 @@
+import {loadData} from "./load-data.ts";
+
+loadData();
 
 class Game{
     //button

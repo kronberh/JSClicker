@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+header {
+    text-align: center;
+    font-size: x-large;
+    background-color: cornflowerblue; /* todo change */
+    padding: 10px;
+}
+main {
+    display: flex;
+    height: calc(100% - 75px);
+}
+.something {
+    background-color: darkkhaki; /* todo change */
+    overflow-y: auto;
+    flex: 1;
+}
+.canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#gameCanvas {
+    background-image: url(img/game-bg.jpg); /* todo remove */
+    background-size: 100% 100%; /* todo remove */
+    width: 100%;
+    height: 100%;
+    max-width: 100vh;
+    max-height: 100vh;
+}
+.grid {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+    max-width: 100vh;
+    max-height: 100vh;
+}
+.grid .gameCanvas-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid:hover .gameCanvas-cover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.grid .gameCanvas-cover:hover {
+    background-color: transparent;
+}
+menu {
+    background-color: forestgreen; /* todo change */
+    color: white; /* todo change */
+    overflow-y: auto;
+    flex: 1;
+}
+menu li {
+    font-size: large;
+    border: 3px solid gray; /* todo change */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+menu .shop-subtitle {
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+}
+#clicker {
+    background-color: burlywood;
+    padding: 40px;
+    border-radius: 40px;
+}
+menu li img {
+    height: 50px;
+    width: 50px;
+}
+menu li button:not(#clicker) {
+    background-color: lightgray;
+    width: 60px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+menu li button img {
+    height: 15px;
+    width: 15px;
+}
+
+/******* WEBKIT *******/
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+::-webkit-scrollbar-thumb {
+    background: blue; 
+    border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: navy; 
+}
