@@ -3,35 +3,50 @@ import {loadData} from "./load-data.ts";
 loadData();
 
 class Game{
-    //button
-    //levels
-    //baseUpgrades
-}
+    public coinsAmount: number = 0;
+    public coinsBonusPerClick: number = 1;
+    public clickButton: HTMLButtonElement | null;
+    public counter: HTMLParagraphElement | null
 
-console.log(2)
+    public constructor(clickButtonSelector: string){
+        this.coinsAmount = 0;
+        this.clickButton = document.querySelector(clickButtonSelector);
+        this.counter = document.querySelector('.current_coins');
+
+        this.clickButton?.addEventListener('click', () => {
+            this.incrementCoinsByAmount(this.coinsBonusPerClick);
+        });
+        
+        (() => {
+            setInterval(() => {
+                this.incrementCoinsByAmount(1);
+            }, 1000)
+        })();
+
+        (() => {
+            this.coinsBonusPerClick = 100;
+        })();
+        
+    }
+
+    public incrementCoinsByAmount(value: number){
+        if(this.counter){
+            this.coinsAmount += value;
+            this.counter.innerHTML = this.coinsAmount + '';
+        }   
+    }
+
+    //public setIntervalIncrement()
+}
 
 class Level{
-    // constructor(backgroundPath: string, upgrades: Upgrade[]){
-    //     this.backgroundPath = backgroundPath;
-    //     this.upgrades = upgrades;
-    // }
+    constructor(){
+      
+    }
 }
 
-abstract class BaseUpgrade{
-    
+interface Upgrade{
+    boost(game: Game): void;
 }
 
-interface IUpgrade{
-
-}
-
-type UpgradeType = {
-
-}
-
-// class Upgrade{
-//     constructor(name, backgroundPath, price, bonus){
-        
-//     }
-// }
-
+const game = new Game('.click_button');
