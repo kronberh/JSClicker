@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -13,8 +14,8 @@
     <main>
         <div class="something"></div>
             <div class="canvas-container">
-                <canvas id="gameCanvas"></canvas>
-                <div class="grid">
+                <svg id="gameCanvas"></svg>
+                <div id="gameGrid">
                     <div class="gameCanvas-cover" id="desert"></div>
                     <div class="gameCanvas-cover" id="savannah"></div>
                     <div class="gameCanvas-cover" id="grassland"></div>
@@ -92,6 +93,18 @@
             </li>
         </menu>
     </main>
+    <footer>
+        <div class="spotify-icons">
+            <img id="spotify-icon" src="">
+            <img id="note-icon" src="">
+        </div>
+        <p id="now-playing">Now playing: </p>
+        <div class="song-icons">
+            <img id="song-link" src="">
+            <img id="author-link" src="">
+        </div>
+    </footer>
 </body>
-<script  type="module" src="./dist/script.js"></script>
+<!-- <script  type="module" src="./dist/script.js"></script> -->
+<script type="module" src="spotify.js"></script>
 </html>
