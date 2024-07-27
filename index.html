@@ -8,6 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+    <div class="overlay">
+        <button id="start-button">Start (loud warning)</button>
+    </div>
     <header>
         <h1>JSClicker (to be replaced)</h1>
     </header>
@@ -93,18 +96,9 @@
             </li>
         </menu>
     </main>
-    <footer>
-        <div class="spotify-icons">
-            <img id="spotify-icon" src="">
-            <img id="note-icon" src="">
-        </div>
-        <p id="now-playing">Now playing: </p>
-        <div class="song-icons">
-            <img id="song-link" src="">
-            <img id="author-link" src="">
-        </div>
-    </footer>
 </body>
 <!-- <script  type="module" src="./dist/script.js"></script> -->
-<script type="module" src="spotify.js"></script>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script type="module" src="soundcloudAPI/script.js"></script>
 </html>

@@ -11,10 +11,34 @@ body {
     display: flex;
     flex-direction: column;
 }
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    font-size: 24px;
+}
+.overlay button {
+    padding: 128px;
+    font-size: 128px;
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 64px;
+}
+.overlay button:hover {
+    background-color: navy;
+}
 header {
     text-align: center;
     font-size: x-large;
-    background-color: cornflowerblue; /* todo change */
+    background-color: cornflowerblue;
     padding: 10px;
 }
 main {
@@ -24,7 +48,7 @@ main {
     flex: 1;
 }
 .something {
-    background-color: darkkhaki; /* todo change */
+    background-color: darkkhaki;
     overflow-y: auto;
     flex: 1;
 }
@@ -35,8 +59,8 @@ main {
     align-items: center;
 }
 #gameCanvas {
-    background-image: url(img/game-bg.jpg); /* todo remove */
-    background-size: 100% 100%; /* todo remove */
+    background-image: url(img/game-bg.jpg);
+    background-size: 100% 100%;
     aspect-ratio: 1/1;
     height: 100%;
 }
@@ -60,14 +84,14 @@ main {
     background-color: transparent;
 }
 menu {
-    background-color: forestgreen; /* todo change */
-    color: white; /* todo change */
+    background-color: forestgreen;
+    color: white;
     overflow-y: auto;
     flex: 1;
 }
 menu li {
     font-size: large;
-    border: 3px solid gray; /* todo change */
+    border: 3px solid gray;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -100,15 +124,6 @@ menu li button img {
     height: 15px;
     width: 15px;
 }
-footer {
-    padding: 6px;
-    background-color: darkgray;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/******* WEBKIT *******/
 ::-webkit-scrollbar {
     width: 16px;
 }
