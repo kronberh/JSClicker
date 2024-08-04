@@ -10,6 +10,12 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+#photo {
+    padding: 20px;
+    background-color: black;
+    color: white;
 }
 .overlay {
     position: fixed;
@@ -47,21 +53,21 @@ main {
     height: 0;
     flex: 1;
 }
-.something {
+#settings {
     background-color: darkkhaki;
-    overflow-y: auto;
-    flex: 1;
+}
+#upgrades {
+    background-color: forestgreen;
+    color: white;
 }
 .canvas-container {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 1/1;
+    height: 100%;
 }
 #gameCanvas {
-    background-image: url(img/game-bg.jpg);
-    background-size: 100% 100%;
-    aspect-ratio: 1/1;
+    width: 100%;
     height: 100%;
 }
 #gameGrid {
@@ -69,23 +75,28 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    aspect-ratio: 1/1;
+    width: 100%;
     height: 100%;
 }
 #gameGrid .gameCanvas-cover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;  /* todo remove */
+    justify-content: center;  /* todo remove */
+    align-items: center;  /* todo remove */
+    color: transparent;  /* todo remove */
 }
 #gameGrid:hover .gameCanvas-cover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 #gameGrid .gameCanvas-cover:hover {
     background-color: transparent;
+    color: black; /* todo remove */
+}
+#clicker {
+    background-color: burlywood;
+    padding: 40px;
+    border-radius: 40px;
 }
 menu {
-    background-color: forestgreen;
-    color: white;
     overflow-y: auto;
     flex: 1;
 }
@@ -94,6 +105,11 @@ menu li {
     border: 3px solid gray;
     padding: 10px;
     display: flex;
+    flex-direction: column;
+}
+menu li .item-container {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -101,28 +117,46 @@ menu .shop-subtitle {
     font-size: xx-large;
     font-weight: bold;
     text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-#clicker {
-    background-color: burlywood;
-    padding: 40px;
-    border-radius: 40px;
-}
-menu li img {
+menu li .item-container img {
     height: 50px;
     width: 50px;
 }
-menu li button:not(#clicker) {
+menu li .item-container button {
     background-color: lightgray;
-    width: 60px;
+    width: 80px;
     height: 40px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-menu li button img {
+menu li .item-container button img {
     height: 15px;
     width: 15px;
+}
+menu li .progress-container {
+    position: relative;
+    width: 100%;
+    height: 10px;
+}
+menu li .progress-container progress {
+    position: absolute;
+}
+menu li .progress-container span {
+    font-size: small;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+footer {
+    height: 20px;
+    background-color: black;
 }
 ::-webkit-scrollbar {
     width: 16px;
@@ -136,4 +170,17 @@ menu li button img {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: navy; 
+}
+progress[value] {
+    height: 10px;
+    width: 100%;
+    border-radius: 0;
+}
+progress[value]::-webkit-progress-bar {
+    border-radius: 5px;
+    background: lightgreen;
+}
+progress[value]::-webkit-progress-value {
+    border-radius: 5px;
+    background: darkgreen;
 }

@@ -1,4 +1,5 @@
 const playButton = document.getElementById('start-button');
+const volumeSlider = document.getElementById('music-volume');
 
 const clientId = 'yTInTFyeJ10yiPJhRlQUbkBkQdWVyFpD';
 const trackIdsFile = 'soundcloudAPI/songIds.txt';
@@ -7,31 +8,35 @@ let currentTrackIndex = newTrackIndex();
 let manualSeeking = true;
 let currentPosition;
 let lastPosition;
+let widget;
 
-function newTrackIndex() {
-    return Math.floor(Math.random() * trackIds.length);
+function newTrackIndex(currentIndex) {
+    if (trackIds.length > 1) {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * trackIds.length);
+        } while (newIndex === currentIndex);
+        return newIndex;
+    } else {
+        return 0;
+    }
 }
 
 function createWidget(trackId) {
-    console.log(`Creating widget for track ID: ${trackId}`);
     const iframe = document.createElement('iframe');
-    iframe.id = 'sc-widget';
     iframe.width = '100%';
-    iframe.height = '23';
-    iframe.frameborder = 'no';
-    iframe.scrolling = "no";
+    iframe.height = '20';
+    iframe.style.border = '0';
     iframe.allow = 'autoplay';
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&client_id=${clientId}&auto_play=true`;
-    document.body.appendChild(iframe);
-    const widget = SC.Widget(iframe);
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=0088ff&client_id=${clientId}&auto_play=true`;
+    document.querySelector('footer').appendChild(iframe);
+    widget = SC.Widget(iframe);
 
     widget.bind(SC.Widget.Events.READY, () => {
-        console.log('Widget is ready');
-        widget.setVolume(5);
+        widget.setVolume(volumeSlider.value);
     });
 
     widget.bind(SC.Widget.Events.FINISH, () => {
-        console.log('Track finished, playing next track');
         playTrack();
     });
 
@@ -52,19 +57,11 @@ function createWidget(trackId) {
     });
 }
 
-function onWidgetSeek() {
-    widget.unbind(SC.Widget.Events.SEEK);
-    widget.seekTo(lastPosition);
-    widget.bind(SC.Widget.Events.SEEK, onWidgetSeek);
-}
-
 function playTrack() {
-    console.log(`Playing next track. Current track index: ${currentTrackIndex}`);
     currentTrackIndex = newTrackIndex();
     const nextTrackId = trackIds[currentTrackIndex];
-    console.log(`Next track ID: ${nextTrackId}`);
 
-    const iframe = document.getElementById('sc-widget');
+    const iframe = document.querySelector('iframe');
     if (iframe) {
         iframe.remove();
     }
@@ -73,6 +70,10 @@ function playTrack() {
 
 playButton.addEventListener('click', async () => {
     playButton.parentElement.style.display = 'none';
-    console.log(trackIds[currentTrackIndex]);
     createWidget(trackIds[currentTrackIndex]);
+});
+
+volumeSlider.addEventListener('input', async () => {
+    widget.setVolume(volumeSlider.value);
+    document.querySelector(`label[for='${volumeSlider.id}']`).innerHTML = `Music volume: ${volumeSlider.value}%`;
 });

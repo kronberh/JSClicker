@@ -9,94 +9,93 @@
 </head>
 <body>
     <div class="overlay">
-        <button id="start-button">Start (loud warning)</button>
+        <button id="start-button">Start</button>
     </div>
     <header>
         <h1>JSClicker (to be replaced)</h1>
     </header>
     <main>
-        <div class="current_coins">fsafsa</div>
-        <div class="something"></div>
-            <div class="canvas-container">
-                <svg id="gameCanvas"></svg>
-                <div id="gameGrid">
-                    <div class="gameCanvas-cover" id="desert"></div>
-                    <div class="gameCanvas-cover" id="savannah"></div>
-                    <div class="gameCanvas-cover" id="grassland"></div>
-                    <div class="gameCanvas-cover" id="borealForest"></div>
-                    <div class="gameCanvas-cover" id="tropicalRainforest"></div>
-                    <div class="gameCanvas-cover" id="temperateForest"></div>
-                    <div class="gameCanvas-cover" id="marine"></div>
-                    <div class="gameCanvas-cover" id="freshwater"></div>
-                    <div class="gameCanvas-cover" id="tundra"></div>
-                </div>
-            </div>
-        <menu>
-            <li class="shop-subtitle">
-                <button id="clicker"></button> &lt- click 4 coinz
+        <menu id="settings">
             <li>
-                <img src="https://cdn.pixabay.com/photo/2016/03/21/20/05/image-1271454_640.png" alt="upg1">
-                <p>Upgrade 1</p>
-                <button>100<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                <button id="photo">Take a picture</button>
             </li>
             <li>
-                <img src="https://www.cs.umd.edu/class/summer2019/cmsc198Q/pict.png" alt="upg1">
-                <p>Upgrade 2</p>
-                <button>200<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="upg1">
-                <p>Upgrade 3</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/2048px-Circle-icons-tools.svg.png" alt="upg1">
-                <p>Upgrade 4</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li class="shop-subtitle log_specific">Location specific upgrades</li>
-            <!-- <li id="upgrade5">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 5</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade6">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 6</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade7">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 7</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade8">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 8</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li> -->
-            <li id="upgrade9">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 9</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade10">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 10</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade11">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 11</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
-            </li>
-            <li id="upgrade12">
-                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png" alt="upg1">
-                <p>Upgrade 12</p>
-                <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                <label for="music-volume">Music volume: 5%</label>
+                <input id="music-volume" type="range" min="0" max="100" value="5">
             </li>
         </menu>
+            <div class="canvas-container">
+                <svg id="gameCanvas" viewBox="0 0 1080 1080">
+                    <defs>
+                        <linearGradient id="bgGradient" x1="60%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffcccc;" />
+                            <stop offset="25%" style="stop-color:#ffffcc;" />
+                            <stop offset="50%" style="stop-color:#ccffcc;" />
+                            <stop offset="75%" style="stop-color:#ccffff;" />
+                            <stop offset="100%" style="stop-color:#ffffff;" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="1080" height="1080" fill="url(#bgGradient)" />
+                    <circle r="100" cx="540" cy="540" fill="black">
+                        <animateMotion dur="4s" repeatCount="indefinite" path="M 50,150 A 50,50 0 0,1 150,50 A 50,50 0 0,0 50,150"></animateMotion>
+                    </circle>
+                </svg>
+                <div id="gameGrid">
+                    <!-- todo remove innerhtml -->
+                    <div class="gameCanvas-cover" id="desert">desert</div>
+                    <div class="gameCanvas-cover" id="savannah">savannah</div>
+                    <div class="gameCanvas-cover" id="grassland">grassland</div>
+                    <div class="gameCanvas-cover" id="borealForest">borealForest</div>
+                    <div class="gameCanvas-cover" id="tropicalRainforest">tropicalRainforest</div>
+                    <div class="gameCanvas-cover" id="temperateForest">temperateForest</div>
+                    <div class="gameCanvas-cover" id="freshwater">freshwater</div>
+                    <div class="gameCanvas-cover" id="marine">marine</div>
+                    <div class="gameCanvas-cover" id="tundra">tundra</div>
+                </div>
+            </div>
+        <menu id="upgrades">
+            <div id="global-upgrades">
+                <li class="shop-subtitle">
+                    <button id="clicker"></button>
+                    <span class="current_coins">&lt- click 4 coinz</span>
+                </li>
+                <li>
+                    <div class="item-container">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/21/20/05/image-1271454_640.png" alt="upg1">
+                        <p>Upgrade 1</p>
+                        <button>100<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-container">
+                        <img src="https://www.cs.umd.edu/class/summer2019/cmsc198Q/pict.png" alt="upg1">
+                        <p>Upgrade 2</p>
+                        <button>200<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-container">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="upg1">
+                        <p>Upgrade 3</p>
+                        <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Circle-icons-tools.svg/2048px-Circle-icons-tools.svg.png" alt="upg1">
+                        <p>Upgrade 4</p>
+                        <button>500<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coin"></button>
+                    </div>
+                </li>
+            </div>
+            <div id="loc_specific">
+                <li class="shop-subtitle">
+                    Location specific upgrades
+                </li>
+            </div>
+        </menu>
     </main>
+    <footer></footer>
 </body>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
