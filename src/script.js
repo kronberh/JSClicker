@@ -1,4 +1,4 @@
-import { upgradeData } from "./upgradeData.js";
+import { upgradeData } from "./locSpecificUpgradeData.js";
 import { renderLocationUpgrades, removeLocationUpgrades } from "./dom.js";
 
 export const locSpecificUpgradesList = document.querySelector('#loc_specific');
