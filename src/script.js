@@ -30,8 +30,6 @@ photoButton.addEventListener('click', () => {
         canvas.width = gameCanvas.width.baseVal.value;
         canvas.height = gameCanvas.height.baseVal.value;
         const ctx = canvas.getContext('2d');
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0);
         canvas.toBlob(function(blob) {
             const jpgUrl = URL.createObjectURL(blob);

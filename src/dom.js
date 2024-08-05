@@ -30,8 +30,8 @@ export function renderLocationUpgrades(locData){
         const progressContainer = document.createElement('div');
         progressContainer.classList.add('progress-container');
 
-        progressContainer.innerHTML = `<progress value="0" max="${u.max}"></progress>
-        <span></span>`;
+        progressContainer.innerHTML = `<progress value="${(typeof gameData.upgradesPurchased.desert[u.name] === 'undefined') ? 0 : gameData.upgradesPurchased.desert[u.name]}" max="${u.max}"></progress>
+        <span>${(typeof gameData.upgradesPurchased.desert[u.name] === 'undefined') ? '' : `x${gameData.upgradesPurchased.desert[u.name]}`}</span>`;
         gameData.callbacks.push(onClickCallback);
         li.appendChild(progressContainer);
         locSpecificUpgradesList.appendChild(li);
