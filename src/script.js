@@ -1,18 +1,24 @@
-const gameCanvas = document.querySelector('#gameCanvas');
-const locSpecificUpgradesList = document.querySelector('#loc_specific');
-const clickButton = document.querySelector('#clicker');
-const photoButton = document.querySelector('#photo');
-const counter = document.querySelector('.current_coins');
+import { upgradeData } from "./upgradeData.js";
+import { renderLocationUpgrades, removeLocationUpgrades } from "./dom.js";
 
-const gameData = {
+export const locSpecificUpgradesList = document.querySelector('#loc_specific');
+export const counter = document.querySelector('.current_coins');
+
+export const gameData = {
     coinsAmount: 0,
     coinsBonusPerClick: 1,
     coinsPerSecond: 0,
     upgradesPurchased: {
         general: { },
         desert: { },
-    }
+    },
+    callbacks: []
 };
+
+const gameCanvas = document.querySelector('#gameCanvas');
+const clickButton = document.querySelector('#clicker');
+const photoButton = document.querySelector('#photo');
+const gameGrid = document.querySelector('#gameGrid');
 
 photoButton.addEventListener('click', () => {
     const svgString = new XMLSerializer().serializeToString(gameCanvas);
@@ -41,94 +47,23 @@ clickButton.addEventListener('click', () => {
     counter.innerHTML = gameData.coinsAmount;
 });
 
-function incrementCoinsPerSecond(amount) {
-    return () => {
-        setInterval(() => {
-            gameData.coinsAmount += amount;
-            counter.innerHTML = gameData.coinsAmount;
-        }, 1000);
-    };
-}
 
-function initializeGame() {
-    gamedata[0].upgrades.forEach(u => {
-        const li = document.createElement('li');
-        li.id = u.selector;
+function renderLocations(){
+        upgradeData.forEach(locData => {
+        const div = document.createElement('div');
+        div.classList.add('gameCanvas-cover');
+        div.id = locData.name;
+        div.innerHTML = locData.name;
 
-        li.innerHTML = `<div class="item-container">
-            <img src=${u.imageUrl}>
-            <p>${u.name}</p>
-        </div>`;
+        div.addEventListener('click', () => {
+            removeLocationUpgrades(div);
+            renderLocationUpgrades(locData);
+        });
 
-        const button = document.createElement('button');
-        button.innerHTML = `${u.price}<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coins">`;
-
-        const onClickCallback = () => {
-            u.upgrade();
-            if(!gameData.upgradesPurchased.desert[u.name]){
-                gameData.upgradesPurchased.desert[u.name] = 1;
-            }else{
-                gameData.upgradesPurchased.desert[u.name] += 1;
-            }
-            document.querySelector(`#${u.selector} .progress-container progress`).value = gameData.upgradesPurchased.desert[u.name];
-            document.querySelector(`#${u.selector} .progress-container span`).innerHTML = `x${gameData.upgradesPurchased.desert[u.name]}`;
-        };
-
-        button.addEventListener('click', onClickCallback);
-        li.querySelector('.item-container').appendChild(button);
-
-        const progressContainer = document.createElement('div');
-        progressContainer.classList.add('progress-container');
-
-        progressContainer.innerHTML = `<progress value="0" max="${u.max}"></progress>
-        <span></span>`;
-        
-        li.appendChild(progressContainer);
-        
-        u.onClickCallback = onClickCallback; // что делает эта строка ?
-        locSpecificUpgradesList.appendChild(li);
+        gameGrid.appendChild(div);
     });
 }
 
+renderLocations();
 
-const gamedata = [
-    {
-        name: 'desert',
-        upgrades: [
-            {
-                name: 'Upgrade 5',
-                price: 500,
-                selector: 'upgrade5',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(5),
-                max: 20,
-            },
-            {
-                name: 'Upgrade 6',
-                price: 1000,
-                selector: 'upgrade6',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(6),
-                max: 20,
-            },
-            {
-                name: 'Upgrade 7',
-                price: 2500,
-                selector: 'upgrade7',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(7),
-                max: 20,
-            },
-            {
-                name: 'Upgrade 8',
-                price: 5000,
-                selector: 'upgrade8',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(8),
-                max: 20,
-            },
-        ]
-    }
-];
 
-initializeGame();
