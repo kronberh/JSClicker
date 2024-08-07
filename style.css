@@ -158,6 +158,9 @@ footer {
     height: 20px;
     background-color: black;
 }
+.invis {
+    display: none;
+}
 ::-webkit-scrollbar {
     width: 16px;
 }

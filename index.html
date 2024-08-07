@@ -35,10 +35,20 @@
                             <stop offset="100%" style="stop-color:#ffffff;" />
                         </linearGradient>
                     </defs>
-                    <rect width="1080" height="1080" fill="url(#bgGradient)" />
-                    <circle r="100" cx="540" cy="540" fill="black">
-                        <animateMotion dur="4s" repeatCount="indefinite" path="M 50,150 A 50,50 0 0,1 150,50 A 50,50 0 0,0 50,150"></animateMotion>
-                    </circle>
+                    <rect width="1080" height="1080" fill="url(#bgGradient)"></rect>
+                    <!-- Deer -->
+                    <circle cx="500" cy="500" r="40" fill="black"></circle>
+                    <ellipse cx="500" cy="500" rx="40" ry="40" fill="black"></ellipse>
+                    <ellipse cx="558" cy="470" rx="30" ry="10" fill="black" transform="rotate(-22 558 470)"></ellipse>
+                    <ellipse cx="442" cy="470" rx="30" ry="10" fill="black" transform="rotate(23 442 470)"></ellipse>
+                    <ellipse cx="553" cy="450" rx="50" ry="8" fill="black" transform="rotate(-23 553 450)"></ellipse>
+                    <ellipse cx="447" cy="450" rx="50" ry="8" fill="black" transform="rotate(22 447 450)"></ellipse>
+                    <ellipse cx="553" cy="435" rx="20" ry="7" fill="black" transform="rotate(-57 553 435)"></ellipse>
+                    <ellipse cx="447" cy="435" rx="20" ry="7" fill="black" transform="rotate(57 447 435)"></ellipse>
+
+                    <ellipse cx="522" cy="552" rx="17" ry="37" fill="black" transform="rotate(-17 522 552)"></ellipse>
+                    <ellipse cx="580" cy="570" rx="65" ry="40" fill="black"></ellipse>
+                    <!-- end Deer -->
                 </svg>
                 <div id="gameGrid">
 
@@ -88,9 +98,11 @@
         </menu>
     </main>
     <footer></footer>
+    <div class="invis"></div>
 </body>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 <script type="module" src="soundcloudAPI/script.js"></script>
 <script type="module" src="src/script.js"></script>
 </html>
