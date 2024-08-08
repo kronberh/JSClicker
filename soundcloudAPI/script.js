@@ -1,7 +1,6 @@
 const playButton = document.getElementById('start-button');
 const volumeSlider = document.getElementById('music-volume');
 
-const clientId = 'yTInTFyeJ10yiPJhRlQUbkBkQdWVyFpD';
 const trackIdsFile = 'soundcloudAPI/songIds.txt';
 const trackIdsRaw = await fetch(trackIdsFile);
 const trackIds = (await trackIdsRaw.text()).split('\n').map(id => id.trim()).filter(id => id !== '');
@@ -43,68 +42,45 @@ function getDominantColor(imageUrl) {
     });
 }
 
-async function createWidget(trackId, color) {
-    const oldIframe = document.querySelector('iframe');
-    if (oldIframe) {
-        oldIframe.remove();
-    }
-    if (!color) {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&client_id=${clientId}`;
-        document.querySelector('.invis').appendChild(iframe);
-        widget = SC.Widget(iframe);
-
-        widget.bind(SC.Widget.Events.READY, () => {
-            widget.getCurrentSound(async function(music) {
-                const dominantColor = await getDominantColor(music.artwork_url);
-                createWidget(trackId, dominantColor);
-            });
+async function loadWidget(trackId) {
+    widget.unbind(SC.Widget.Events.READY);
+    widget.load(`https://api.soundcloud.com/tracks/${trackId}`);
+    widget.bind(SC.Widget.Events.READY, () => {
+        widget.getCurrentSound(async track => {
+            const dominantColor = await getDominantColor(track.artwork_url);
+            widget.load(`https://api.soundcloud.com/tracks/${trackId}&color=${dominantColor}&auto_play=true`);
         });
-    } else {
-        const iframe = document.createElement('iframe');
-        iframe.width = '100%';
-        iframe.height = '20';
-        iframe.style.border = '0';
-        iframe.allow = 'autoplay';
-        iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=${color}&client_id=${clientId}&auto_play=true`;
-        document.querySelector('footer').appendChild(iframe);
-        widget = SC.Widget(iframe);
-    
-        widget.bind(SC.Widget.Events.READY, async () => {
-            widget.setVolume(volumeSlider.value);
-        });
-    
-        widget.bind(SC.Widget.Events.FINISH, () => {
-            playTrack();
-        });
-    
-        widget.bind(SC.Widget.Events.ERROR, () => {
-            playTrack();
-        });
-    
-        widget.bind(SC.Widget.Events.PAUSE, () => {
-            widget.play();
-        });
-    
-        widget.bind(SC.Widget.Events.PLAY_PROGRESS, event => {
-            lastPosition = currentPosition;
-            currentPosition = event.currentPosition;
-        });
-    
-        widget.bind(SC.Widget.Events.SEEK, () => {
-            if (manualSeeking) {
-                widget.seekTo(lastPosition);
-            }
-            manualSeeking = !manualSeeking;
-        });
-    }
+    });
 }
 
 async function playTrack() {
     currentTrackIndex = newTrackIndex();
     const nextTrackId = trackIds[currentTrackIndex];
-    await createWidget(nextTrackId, false);
+    await loadWidget(nextTrackId);
 }
+
+const iframe = document.createElement('iframe');
+iframe.width = '100%';
+iframe.height = '20';
+iframe.style.border = '0';
+iframe.allow = 'autoplay';
+iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/0`; // ошибка вызвана специально - предотвращает игру перед нажатием кнопки "старт"
+document.querySelector('footer').appendChild(iframe);
+widget = SC.Widget(iframe);
+widget.bind(SC.Widget.Events.PLAY, () => widget.setVolume(volumeSlider.value));
+widget.bind(SC.Widget.Events.FINISH, playTrack);
+widget.bind(SC.Widget.Events.ERROR, playTrack);
+widget.bind(SC.Widget.Events.PAUSE, widget.play);
+widget.bind(SC.Widget.Events.PLAY_PROGRESS, event => {
+    lastPosition = currentPosition;
+    currentPosition = event.currentPosition;
+});
+widget.bind(SC.Widget.Events.SEEK, () => {
+    if (manualSeeking) {
+        widget.seekTo(lastPosition);
+    }
+    manualSeeking = !manualSeeking;
+});
 
 playButton.addEventListener('click', async () => {
     playButton.parentElement.style.display = 'none';
