@@ -11,7 +11,7 @@ export function renderLocationUpgrades(locData){
         </div>`;
 
         const button = document.createElement('button');
-        button.innerHTML = `${u.price}<img src="https://pngimg.com/d/coin_PNG36871.png" alt="coins">`;
+        button.innerHTML = `${u.price}<img src="img/currency.svg" alt="coins">`;
 
         const onClickCallback = () => {
             u.upgrade();

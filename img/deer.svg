@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="55 110 300 250" width="300" height="250" xmlns="http://www.w3.org/2000/svg">
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 327.918px 184.328px;" cx="327.918" cy="184.328" rx="45" ry="7" transform="matrix(0.906307995319, -0.422618120909, 0.422618120909, 0.906307995319, -77.935308080215, -34.288763053279)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 365.176px 201.649px;" cx="365.176" cy="201.649" rx="45" ry="7" transform="matrix(-0.906307995319, -0.422618120909, -0.422618120909, 0.906307995319, -215.174902772951, -51.64901712317)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); paint-order: fill; stroke-width: 0px; transform-origin: 200px 200px;" cx="199.996" cy="200.003" rx="39.958" ry="40.018">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 366.863px 204.104px;" cx="366.863" cy="204.104" rx="20" ry="6" transform="matrix(-0.5, -0.866026222706, -0.866026222706, 0.5, -221.863520687636, -69.103890000097)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 388.083px 238.296px;" cx="388.083" cy="238.296" rx="20" ry="6" transform="matrix(0.500001013279, -0.866025209427, -0.866025209427, -0.500001013279, -133.082509651805, -103.296139121657)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 365.386px 200.929px;" cx="365.386" cy="200.929" rx="30" ry="10" transform="matrix(-0.906307995319, -0.422618120909, -0.422618120909, 0.906307995319, -225.385241738888, -30.928961651796)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 365.812px 201.475px;" cx="365.812" cy="201.475" rx="30" ry="10" transform="matrix(0.906307995319, -0.422618120909, 0.422618120909, 0.906307995319, -105.812099364124, -31.474815522135)">
+    <animateMotion path="M 0 0 C -3.305 -3.739 -59.625 27.921 -41.5 99.82" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keyPoints="0; 1; 1; 0; 0" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 352.936px 202.203px;" cx="363.888" cy="199.961" rx="30" ry="18" transform="matrix(-0.258819013834, -0.965926229954, 0.965926229954, -0.258819013834, -127.936010964209, 62.79716259417)">
+    <animateTransform type="rotate" additive="sum" attributeName="transform" values="0; -100; -100; 0; 0" calcMode="spline" dur="8s" keyTimes="0; 0.125; 0.25; 0.375; 1" keySplines="0.42 0 0.58 1; 0 0 1 1; 0.42 0 0.58 1; 0 0 1 1" fill="freeze" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 280px 270px;" cx="280" cy="270" rx="62" ry="35"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 331.393px 218.544px;" cx="331.393" cy="218.544" rx="14.453" ry="6.424" transform="matrix(0.766044795513, -0.642786979675, 0.642786979675, 0.766044795513, 8.606368786318, 26.45572585484)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 364.516px 200.939px;" cx="364.516" cy="200.939" rx="25" ry="12" transform="matrix(0.258819013834, -0.965926229954, 0.965926229954, 0.258819013834, -149.515654085788, 89.061583337253)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 365.158px 200.216px;" cx="365.158" cy="200.216" rx="25" ry="8" transform="matrix(-0.087156012654, -0.996195018291, 0.996195018291, -0.087156012654, -155.158320135483, 124.783945039911)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 363.977px 201.587px;" cx="363.977" cy="201.587" rx="25" ry="10" transform="matrix(0, -1, 1, 0, -128.977031209871, 98.413217901846)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 364.286px 201.676px;" cx="364.286" cy="201.676" rx="20" ry="8" transform="matrix(0, -1, 1, 0, -129.285983542739, 128.323893402307)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 364.957px 206.3px;" cx="364.958" cy="206.3" rx="25" ry="15" transform="matrix(-0.707107007504, -0.707107007504, 0.707107007504, -0.707107007504, -39.957365795807, 93.700838163842)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 366.11px 199.9px;" cx="366.11" cy="199.9" rx="23" ry="8" transform="matrix(0.5, -0.866026222706, 0.866026222706, 0.5, -36.110491777775, 130.10020524429)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 363.373px 204.652px;" cx="363.373" cy="204.652" rx="25" ry="8" transform="matrix(0.5, -0.866026222706, 0.866026222706, 0.5, -58.373092922755, 120.347998000958)"/>
+  <ellipse style="paint-order: fill; stroke: rgb(0, 0, 0); stroke-width: 0px; transform-origin: 364.219px 200.73px;" cx="364.219" cy="200.73" rx="23" ry="12" transform="matrix(0.5, -0.866026222706, 0.866026222706, 0.5, -39.219101920336, 89.269361992636)"/>
+</svg>
