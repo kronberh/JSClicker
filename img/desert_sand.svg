@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-90 215 540 145" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M -2.5 215 L 85 360 L -90 360 L -2.5 215 Z" style="stroke-width: 0px; stroke: rgb(0, 0, 0); fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle -90 215 175 145 0.5 0 1@2351e653"/>
+  <path d="M 35 215 L 130 312 L -60 312 L 35 215 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle -60 215 190 97 0.5 0 1@d5b039e7"/>
+  <path d="M 97.5 235 L 235 360 L -40 360 L 97.5 235 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle -40 235 275 125 0.5 0 1@90a50041"/>
+  <path d="M 330 215 L 425 325 L 235 325 L 330 215 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle 235 215 190 110 0.5 0 1@2a1de820"/>
+  <path d="M 285 235 L 385 335 L 185 335 L 285 235 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle 185 235 200 100 0.5 0 1@b256b662"/>
+  <path d="M 357.5 230 L 450 360 L 265 360 L 357.5 230 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle 265 230 185 130 0.5 0 1@7537f593"/>
+  <path d="M 225 245 L 390 360 L 60 360 L 225 245 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle 60 245 330 115 0.5 0 1@2c79fef1"/>
+  <path d="M 165 255 L 345 315 L -15 315 L 165 255 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(204, 102, 0);" transform="matrix(1, 0, 0, 1, -2.842170943040401e-14, 0)" bx:shape="triangle -15 255 360 60 0.5 0 1@0d184072"/>
+</svg>
