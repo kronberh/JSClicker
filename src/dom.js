@@ -13,15 +13,34 @@ export function renderLocationUpgrades(locData){
         const button = document.createElement('button');
         button.innerHTML = `${u.price}<img src="img/currency.svg" alt="coins">`;
 
+        // const obj = {}
+        // obj['a'] = {};
+        // obj['a']['b'] = 123;
+        // console.log(obj);
+
         const onClickCallback = () => {
-            u.upgrade();
-            if(!gameData.upgradesPurchased.desert[u.name]){
-                gameData.upgradesPurchased.desert[u.name] = 1;
+            if(gameData.coinsAmount >= u.price){
+                u.upgrade();
+                console.log(locData.name, u.name)
+                if(!gameData.upgradesPurchased[locData.name]){
+                    gameData.upgradesPurchased[locData.name] = {};
+                    gameData.upgradesPurchased[locData.name][u.name] = 1;
+                }else{
+                    if(!gameData.upgradesPurchased[locData.name][u.name]){
+                        gameData.upgradesPurchased[locData.name][u.name] = 1;
+                    }else{
+                        gameData.upgradesPurchased[locData.name][u.name] = +1;
+                    }
+                }
+                document.querySelector(`#${u.selector} .progress-container progress`).value = gameData.upgradesPurchased[locData.name][u.name];
+                document.querySelector(`#${u.selector} .progress-container span`).innerHTML = `x${gameData.upgradesPurchased[locData.name][u.name]}`;
+
+                console.log(gameData.upgradesPurchased[locData.name][u.name]);
+
+                gameData.coinsAmount -= u.price;
             }else{
-                gameData.upgradesPurchased.desert[u.name] += 1;
+                alert('You dont have enough coins to purchase this.');
             }
-            document.querySelector(`#${u.selector} .progress-container progress`).value = gameData.upgradesPurchased.desert[u.name];
-            document.querySelector(`#${u.selector} .progress-container span`).innerHTML = `x${gameData.upgradesPurchased.desert[u.name]}`;
         };
 
         button.addEventListener('click', onClickCallback);
