@@ -95,27 +95,6 @@ export const upgradeData = [
         ]
     },
     {
-        name: 'borealForest',
-        upgrades: [
-            {
-                name: 'Upgrade 3',
-                price: 300,
-                selector: 'upgrade3',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(3),
-                max: 10,
-            },
-            {
-                name: 'Upgrade 4',
-                price: 400,
-                selector: 'upgrade4',
-                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
-                upgrade: incrementCoinsPerSecond(4),
-                max: 15,
-            },
-        ]
-    },
-    {
         name: 'tropicalRainforest',
         upgrades: [
             {
@@ -154,6 +133,27 @@ export const upgradeData = [
                 imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
                 upgrade: incrementCoinsPerSecond(12),
                 max: 20,
+            },
+        ]
+    },
+    {
+        name: 'borealForest',
+        upgrades: [
+            {
+                name: 'Upgrade 3',
+                price: 300,
+                selector: 'upgrade3',
+                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
+                upgrade: incrementCoinsPerSecond(3),
+                max: 10,
+            },
+            {
+                name: 'Upgrade 4',
+                price: 400,
+                selector: 'upgrade4',
+                imageUrl: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/images/logo_google_adsense_color_2x_web_512dp.original.png',
+                upgrade: incrementCoinsPerSecond(4),
+                max: 15,
             },
         ]
     },
