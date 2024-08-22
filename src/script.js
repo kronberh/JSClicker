@@ -1,11 +1,12 @@
 import { upgradeData } from "./locSpecificUpgradeData.js";
 import { renderLocationUpgrades, removeLocationUpgrades } from "./dom.js";
+import { fetchLocalStorage, initializeFromGameConfig, writeToLocalStorage } from "./data.js";
 
 export const locSpecificUpgradesList = document.querySelector('#loc_specific');
 export const counter = document.querySelector('.current_coins');
 
-export const gameData = {
-    coinsAmount: 0,
+export const gameData = fetchLocalStorage() ?? {
+    coinsAmount: 999_999, 
     coinsBonusPerClick: 1,
     coinsPerSecond: 0,
     upgradesPurchased: {
@@ -45,7 +46,6 @@ clickButton.addEventListener('click', () => {
     counter.innerHTML = gameData.coinsAmount;
 });
 
-
 function renderLocations(){
         upgradeData.forEach(locData => {
         const div = document.createElement('div');
@@ -62,6 +62,13 @@ function renderLocations(){
     });
 }
 
+
+initializeFromGameConfig(gameData);
 renderLocations();
+
+window.addEventListener('beforeunload', () => {
+    writeToLocalStorage(gameData);
+});
+
 
 
