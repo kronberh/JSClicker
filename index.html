@@ -24,6 +24,10 @@
                 <label for="music-volume">Music volume: 5%</label>
                 <input id="music-volume" type="range" min="0" max="100" value="5">
             </li>
+            <li>
+                <span>Items toggle (test)</span>
+                <div id="svg-controls"></div>
+            </li>
         </menu>
             <div class="canvas-container">
                 <svg id="gameCanvas" viewBox="0 0 1080 1080">
@@ -48,7 +52,7 @@
                     <image href="img/savannah_land.svg" width="366" height="150" x="360" y="210"></image>
                     <image href="img/savannah_grass.svg" width="364" height="74" x="360" y="186"></image>
                     <image href="img/savannah_tree.svg" width="230.899" height="157.0973" x="487.97" y="69.955"></image>
-                    <image href="img/savannah_giraff.svg" width="73.0962" height="127.4126" x="632.642" y="121.4344"></image>
+                    <image href="img/savannah_giraff.svg" style="z-index:0;" width="73.0962" height="127.4126" x="632.642" y="121.4344"></image>
                     <image href="img/savannah_hyena.svg" width="101.4586" height="96.168" x="594.526" y="243.618"></image>
                     <image href="img/savannah_lion.svg" width="201.3911" height="95.7337" x="366.4971" y="196.0643"></image>
 
@@ -86,12 +90,8 @@
                     <image href="img/freshwater_dragonfly.svg" width="60.966" height="52.3525" x="243.6727" y="858.7994"></image>
                     <image href="img/freshwater_otter.svg" width="44.0908" height="19.0586" x="260.3052" y="1013.0612"></image>
                     <image href="img/freshwater_heron.svg" width="78.2468" height="122.1523" x="76.3802" y="881.7479"></image>
-
-                    <!-- <image href="img/deer.svg" x="500" y="500"></image> -->
                 </svg>
-                <div id="gameGrid">
-
-                </div>
+                <div id="gameGrid"></div>
             </div>
         <menu id="upgrades">
             <div id="global-upgrades">

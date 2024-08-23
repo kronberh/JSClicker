@@ -13,11 +13,6 @@ body {
     flex-direction: column;
     overflow: hidden;
 }
-#photo {
-    padding: 20px;
-    background-color: black;
-    color: white;
-}
 .overlay {
     position: fixed;
     width: 100%;
@@ -56,6 +51,20 @@ main {
 }
 #settings {
     background-color: cornflowerblue;
+}
+#photo {
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+#svg-controls button {
+    width: 100%;
+    padding: 20px;
+    background-color: darkblue;
+    color: white;
+}
+#svg-controls .toggled {
+    background-color: darkred;
 }
 #upgrades {
     background-color: forestgreen;

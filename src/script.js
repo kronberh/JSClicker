@@ -20,25 +20,93 @@ const gameCanvas = document.querySelector('#gameCanvas');
 const clickButton = document.querySelector('#clicker');
 const photoButton = document.querySelector('#photo');
 const gameGrid = document.querySelector('#gameGrid');
+const svgControls = document.getElementById('svg-controls');
+const svgImages = document.querySelectorAll('#gameCanvas image');
 
 photoButton.addEventListener('click', () => {
-    const svgString = new XMLSerializer().serializeToString(gameCanvas);
-    const svgBlob = new Blob([svgString], {type: 'image/svg+xml;charset=utf-8'});
-    const url = URL.createObjectURL(svgBlob);
-    const img = new Image();
-    img.onload = function() {
+    function cloneSVG(svg) {
+        return svg.cloneNode(true);
+    }
+    function convertImageToBase64(url, callback) {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            const dataURL = canvas.toDataURL('image/png');
+            callback(dataURL);
+        };
+        img.onerror = function() {
+            console.error('Failed to load image: ' + url);
+            callback(null);
+        };
+        img.src = url;
+    }
+    function convertAllImagesToBase64(svgElement, callback) {
+        const images = svgElement.querySelectorAll('image');
+        let remaining = images.length;
+        if (remaining === 0) {
+            callback();
+            return;
+        }
+        images.forEach(img => {
+            const href = img.getAttribute('href');
+            if (href.startsWith('data:')) {
+                remaining--;
+                if (remaining === 0) callback();
+                return;
+            }
+            convertImageToBase64(href, base64 => {
+                if (base64) img.setAttribute('href', base64);
+                remaining--;
+                if (remaining === 0) callback();
+            });
+        });
+    }
+    const clonedSvg = cloneSVG(gameCanvas);
+    convertAllImagesToBase64(clonedSvg, function() {
+        const svgData = new XMLSerializer().serializeToString(clonedSvg);
         const canvas = document.createElement('canvas');
-        canvas.width = gameCanvas.width.baseVal.value;
-        canvas.height = gameCanvas.height.baseVal.value;
+        canvas.width = 1080;
+        canvas.height = 1080;
         const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
-        canvas.toBlob(function(blob) {
-            const jpgUrl = URL.createObjectURL(blob);
-            window.open(jpgUrl);
+        const img = new Image();
+        const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(svgBlob);
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
             URL.revokeObjectURL(url);
-        }, 'image/jpeg');
-    };
-    img.src = url;
+            canvas.toBlob(function(blob) {
+                const blobUrl = URL.createObjectURL(blob);
+                window.open(blobUrl);
+            }, 'image/png');
+        };
+        img.src = url;
+    });
+});
+
+svgImages.forEach((image, index) => {
+    const button = document.createElement('button');
+    button.innerHTML = `Toggle ${image.getAttribute('href')}`;
+    console.log(svgImages[index]);
+    button.dataset.target = index;
+    button.addEventListener('click', () => {
+        const target = button.dataset.target;
+        const element = svgImages[target];
+        if (element) {
+            if (element.style.display === 'none') {
+                element.style.display = 'inline';
+                button.classList.remove('toggled');
+            } else {
+                element.style.display = 'none';
+                button.classList.add('toggled');
+            }
+        }
+    });
+    svgControls.appendChild(button);
 });
 
 clickButton.addEventListener('click', () => {
