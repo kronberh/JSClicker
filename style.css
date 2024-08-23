@@ -166,11 +166,11 @@ footer {
     background-color: rgba(255, 255, 255, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-    background: blue; 
+    background: green;
     border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: navy; 
+    background: darkgreen;
 }
 progress[value] {
     height: 10px;
