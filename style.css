@@ -40,7 +40,8 @@ body {
 header {
     text-align: center;
     font-size: x-large;
-    background-color: sandybrown ;
+    background-color: sandybrown;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5) inset;
     padding: 10px;
 }
 main {
@@ -112,7 +113,7 @@ menu {
 }
 menu li {
     font-size: large;
-    border: 3px solid gray;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5) inset;
     padding: 10px;
     display: flex;
     flex-direction: column;
