@@ -142,7 +142,8 @@ function renderLocations(){
 function initializeGeneralUpgrades(){
     const generalUpgradesAmount = 4;
     for(let i = 0; i < generalUpgradesAmount; i++){
-        const selector = `general-upgrade-${i + 1}`
+        const selector = `general-upgrade-${i + 1}`;
+        const upgradeContainer = document.querySelector(`#${selector}`);
         const purchaseButton = document.querySelector(`#${selector} button`);
 
         const requiredUpgradeData = generalUpgradeData.find(data => data.selector === selector);
@@ -162,11 +163,19 @@ function initializeGeneralUpgrades(){
                     }else{
                         gameData.upgradesPurchased['general'][requiredUpgradeData.name] = gameData.upgradesPurchased['general'][requiredUpgradeData.name] + 1;
                     }
+                    document.querySelector(`#${selector} .progress-container progress`).value = gameData.upgradesPurchased['general'][requiredUpgradeData.name];
+                    document.querySelector(`#${selector} .progress-container span`).innerHTML = `x${gameData.upgradesPurchased['general'][requiredUpgradeData.name]}`;
                     gameData.coinsAmount -= requiredUpgradeData.price;
                 }else{
                     alert('You don\'t have enough coins to purchase this');
                 }
             });
+
+            const progressContainer = document.createElement('div');
+            progressContainer.classList.add('progress-container');
+            progressContainer.innerHTML = `<progress value="${!gameData.upgradesPurchased['general'][requiredUpgradeData.name] ? 0 : gameData.upgradesPurchased['general'][requiredUpgradeData.name]}" max="${requiredUpgradeData.max}"></progress>
+            <span>${!gameData.upgradesPurchased['general'][requiredUpgradeData.name] ? '' : `x${gameData.upgradesPurchased['general'][requiredUpgradeData.name]}`}</span>`;
+            upgradeContainer.appendChild(progressContainer);
         }
     }
 }
