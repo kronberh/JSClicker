@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="720 925.8135 360 185.774" xmlns="http://www.w3.org/2000/svg">
+  <rect y="-1079.975" width="360" height="60" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); fill-opacity: 0.5; transform-origin: 900px -1049.97px;" x="720" transform="matrix(1, 0, 0, -1, 0, 2099.949902343761)"/>
+  <rect y="-1079.975" width="360" height="20" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 900px -1069.97px;" x="720" transform="matrix(1, 0, 0, -1, 0, 2139.949902343783)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 803.813px -1059.41px;" cx="803.813" cy="-1059.406" rx="83.813" ry="10" transform="matrix(1, 0, 0, -1, 0.000015000017, 2118.811914062607)"/>
+  <path d="M 1037.815 928.835 L 1144.819 1054.06 L 930.811 1054.06 L 1037.815 928.835 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 5.684341886080802e-14, 1.1368683772161603e-13)"/>
+  <path d="M 1080.942 934.708 L 1179.921 1080.572 L 981.962 1080.572 L 1080.942 934.708 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 5.684341886080802e-14, 1.1368683772161603e-13)"/>
+  <path d="M 975.009 966.225 L 1082.013 1061.959 L 868.005 1061.959 L 975.009 966.225 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153);" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 5.684341886080802e-14, 1.1368683772161603e-13)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 720.045px -1018.82px;" cx="720.044" cy="-1018.698" rx="59.35" ry="92.887" transform="matrix(1, 0, 0, -1, 3e-12, 2037.642431641039)"/>
+  <rect y="-1080.492" width="19.484" height="60.492" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 769.63px -1050.22px;" x="759.888" transform="matrix(1, 0, 0, -1, 0, 2100.449853516312)"/>
+</svg>

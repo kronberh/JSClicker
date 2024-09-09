@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="720 720 360 75" xmlns="http://www.w3.org/2000/svg">
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 1043.65px -773.371px;" cx="1043.653" cy="-773.371" rx="36.347" ry="8.628" transform="matrix(1, 0, 0, -1, 0.000014999969, 1546.741894531125)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 990.837px -766.891px;" cx="990.837" cy="-766.891" rx="43.036" ry="26.237" transform="matrix(1, 0, 0, -1, -0.000011000012, 1533.782031250048)"/>
+  <rect y="720" width="360" height="53.692" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153);" x="-1080" transform="matrix(-0.9999999999999999, 0, 0, 0.9999999999999999, 5.684341886080802e-14, 1.1368683772161603e-13)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 917.298px -768.763px;" cx="917.298" cy="-768.763" rx="52.715" ry="26.237" transform="matrix(1, 0, 0, -1, -0.000023000004, 1537.526025390621)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 838.407px -766.882px;" cx="838.407" cy="-766.882" rx="47.218" ry="26.237" transform="matrix(1, 0, 0, -1, -0.000019000008, 1533.763964843729)"/>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(153, 153, 153); transform-origin: 763.305px -773.632px;" cx="763.305" cy="-773.632" rx="43.278" ry="16.399" transform="matrix(1, 0, 0, -1, -0.000015, 1547.263964843774)"/>
+</svg>
