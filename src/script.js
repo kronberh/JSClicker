@@ -1,4 +1,5 @@
 import { upgradeData } from "./locSpecificUpgradeData.js";
+import { generalUpgradeData } from "./upgradeData.js"
 import { renderLocationUpgrades, removeLocationUpgrades } from "./dom.js";
 import { fetchLocalStorage, initializeFromGameConfig, writeToLocalStorage } from "./data.js";
 
@@ -12,6 +13,14 @@ export const gameData = fetchLocalStorage() ?? {
     upgradesPurchased: {
         general: { },
         desert: { },
+        savannah: { },
+        grassland: { },
+        tropicalRainforest: { },
+        temperateForest: { },
+        borealForest: { },
+        freshwater: { },
+        marine: { },
+        tundra: { },
     },
     callbacks: []
 };
@@ -115,7 +124,7 @@ clickButton.addEventListener('click', () => {
 });
 
 function renderLocations(){
-        upgradeData.forEach(locData => {
+    upgradeData.forEach(locData => {
         const div = document.createElement('div');
         div.classList.add('gameCanvas-cover');
         div.id = locData.name;
@@ -130,13 +139,44 @@ function renderLocations(){
     });
 }
 
+function initializeGeneralUpgrades(){
+    const generalUpgradesAmount = 4;
+    for(let i = 0; i < generalUpgradesAmount; i++){
+        const selector = `general-upgrade-${i + 1}`
+        const purchaseButton = document.querySelector(`#${selector} button`);
+
+        const requiredUpgradeData = generalUpgradeData.find(data => data.selector === selector);
+
+        if(gameData.upgradesPurchased['general'][requiredUpgradeData.name]){
+            for(let i = 0; i < gameData.upgradesPurchased['general'][requiredUpgradeData.name]; i++){
+                requiredUpgradeData.upgrade();
+            }
+        }
+
+        if(requiredUpgradeData){
+            purchaseButton.addEventListener('click', () => {
+                requiredUpgradeData.upgrade();
+                if(gameData.coinsAmount >= requiredUpgradeData.price){
+                    if(!gameData.upgradesPurchased['general'][requiredUpgradeData.name]){
+                        gameData.upgradesPurchased['general'][requiredUpgradeData.name] = 1;
+                    }else{
+                        gameData.upgradesPurchased['general'][requiredUpgradeData.name] = gameData.upgradesPurchased['general'][requiredUpgradeData.name] + 1;
+                    }
+                    gameData.coinsAmount -= requiredUpgradeData.price;
+                }else{
+                    alert('You don\'t have enough coins to purchase this');
+                }
+            });
+        }
+    }
+}
 
 initializeFromGameConfig(gameData);
 renderLocations();
+initializeGeneralUpgrades();
 
 window.addEventListener('beforeunload', () => {
     writeToLocalStorage(gameData);
 });
-
 
 
