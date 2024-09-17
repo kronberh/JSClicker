@@ -171,6 +171,11 @@ menu li .progress-container span {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#settings button img { /* todo remove */
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+}
 footer {
     height: 20px;
     background-color: black;

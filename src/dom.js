@@ -1,6 +1,12 @@
 import { gameData, locSpecificUpgradesList } from "./script.js";
 
-export function renderLocationUpgrades(locData){
+const volumeSlider = document.getElementById("sound-volume");
+
+volumeSlider.addEventListener('input', () => {
+    document.querySelector(`label[for='${volumeSlider.id}']`).innerHTML = `Sound volume: ${volumeSlider.value}%`;
+});
+
+export function renderLocationUpgrades(locData) {
     locData.upgrades.forEach((u,i) => {
         const li = document.createElement('li');
         li.id = u.selector;
@@ -38,6 +44,10 @@ export function renderLocationUpgrades(locData){
                 console.log(gameData.upgradesPurchased[locData.name][u.name]);
 
                 gameData.coinsAmount -= u.price;
+
+                const sound = new Audio('audio/item_purchased.mp3');
+                sound.volume = volumeSlider.value / 100;
+                sound.play();
             }else{
                 alert('You dont have enough coins to purchase this.');
             }

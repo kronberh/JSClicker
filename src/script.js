@@ -90,8 +90,7 @@ photoButton.addEventListener('click', () => {
 
 svgImages.forEach((image, index) => {
     const button = document.createElement('button');
-    button.innerHTML = `Toggle ${image.getAttribute('href')}`;
-    console.log(svgImages[index]);
+    button.innerHTML = `<img src="${image.getAttribute('href').replace(/\.[^/.]+$/, "")}_icon.svg" alt="icon"> Toggle ${image.getAttribute('href')}`;
     button.dataset.target = index;
     button.addEventListener('click', () => {
         const target = button.dataset.target;
