@@ -19,15 +19,9 @@ export function renderLocationUpgrades(locData) {
         const button = document.createElement('button');
         button.innerHTML = `${u.price}<img src="img/currency.svg" alt="coins">`;
 
-        // const obj = {}
-        // obj['a'] = {};
-        // obj['a']['b'] = 123;
-        // console.log(obj);
-
         const onClickCallback = () => {
             if(gameData.coinsAmount >= u.price){
                 u.upgrade();
-                console.log(locData.name, u.name)
                 if(!gameData.upgradesPurchased[locData.name]){
                     gameData.upgradesPurchased[locData.name] = {};
                     gameData.upgradesPurchased[locData.name][u.name] = 1;
@@ -35,13 +29,11 @@ export function renderLocationUpgrades(locData) {
                     if(!gameData.upgradesPurchased[locData.name][u.name]){
                         gameData.upgradesPurchased[locData.name][u.name] = 1;
                     }else{
-                        gameData.upgradesPurchased[locData.name][u.name] = +1;
+                        gameData.upgradesPurchased[locData.name][u.name] = gameData.upgradesPurchased[locData.name][u.name] + 1;
                     }
                 }
                 document.querySelector(`#${u.selector} .progress-container progress`).value = gameData.upgradesPurchased[locData.name][u.name];
                 document.querySelector(`#${u.selector} .progress-container span`).innerHTML = `x${gameData.upgradesPurchased[locData.name][u.name]}`;
-
-                console.log(gameData.upgradesPurchased[locData.name][u.name]);
 
                 gameData.coinsAmount -= u.price;
 
@@ -58,9 +50,8 @@ export function renderLocationUpgrades(locData) {
 
         const progressContainer = document.createElement('div');
         progressContainer.classList.add('progress-container');
-
-        progressContainer.innerHTML = `<progress value="${(typeof gameData.upgradesPurchased.desert[u.name] === 'undefined') ? 0 : gameData.upgradesPurchased.desert[u.name]}" max="${u.max}"></progress>
-        <span>${(typeof gameData.upgradesPurchased.desert[u.name] === 'undefined') ? '' : `x${gameData.upgradesPurchased.desert[u.name]}`}</span>`;
+        progressContainer.innerHTML = `<progress value="${!gameData.upgradesPurchased[locData.name][u.name] ? 0 : gameData.upgradesPurchased[locData.name][u.name]}" max="${u.max}"></progress>
+        <span>${(typeof gameData.upgradesPurchased[locData.name][u.name] === 'undefined') ? '' : `x${gameData.upgradesPurchased[locData.name][u.name]}`}</span>`;
         gameData.callbacks.push(onClickCallback);
         li.appendChild(progressContainer);
         locSpecificUpgradesList.appendChild(li);
